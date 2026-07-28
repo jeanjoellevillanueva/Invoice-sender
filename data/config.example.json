@@ -1,0 +1,38 @@
+{
+  "send_day": 25,
+  "recipient_email": "",
+  "smtp": {
+    "host": "smtp.gmail.com",
+    "port": 587,
+    "username": "",
+    "password": "",
+    "from_email": "",
+    "from_name": "Jean Joelle A. Villanueva"
+  },
+  "invoice": {
+    "prefix": "UWHPL-",
+    "last_number": 0,
+    "issued_by": {
+      "name": "JEAN JOELLE A. VILLANUEVA",
+      "address": "***",
+      "phone": "***",
+      "email": "joelle@unwritten.hair"
+    },
+    "issued_to": {
+      "name": "HUSL APP PTY LTD (formerly Unwritten Hair Pty Ltd)",
+      "address": "***",
+      "abn": "***"
+    },
+    "pay_to": {
+      "bank_name": "***",
+      "account_name": "Jean Joelle A. Villanueva",
+      "account_number": "***",
+      "swift_code": "***"
+    },
+    "amount": 0,
+    "currency": "Php",
+    "description_template": "Payroll run for the period 1 - {last_day} {month_name}, {year}"
+  },
+  "email_subject_template": "{month_name} {year} Invoice - Jean Joelle Villanueva",
+  "email_body_template": "Hi HUSL,\n\nGood day! Please see my invoice for {month_name} {year}.\nThank you!\n\nRegards,\nJean Joelle A. Villanueva"
+}

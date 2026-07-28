@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Invoice Sender</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <main>
+    <header>
+      <p class="brand">Invoice Sender</p>
+      <p class="status" id="status-line">Loading…</p>
+    </header>
+
+    <section>
+      <h1>Schedule &amp; delivery</h1>
+      <form id="config-form">
+        <div class="grid">
+          <label>
+            Send day of month
+            <input type="number" name="send_day" id="send_day" min="1" max="28" required />
+          </label>
+          <label>
+            Recipient email
+            <input type="email" name="recipient_email" id="recipient_email" required />
+          </label>
+        </div>
+
+        <h2>SMTP (Gmail)</h2>
+        <div class="grid">
+          <label>
+            Username
+            <input type="email" id="smtp_username" required />
+          </label>
+          <label>
+            App password
+            <input type="password" id="smtp_password" placeholder="Leave blank to keep current" />
+          </label>
+          <label>
+            From email
+            <input type="email" id="smtp_from_email" />
+          </label>
+          <label>
+            From name
+            <input type="text" id="smtp_from_name" />
+          </label>
+        </div>
+
+        <h2>Invoice details</h2>
+        <div class="grid">
+          <label>
+            Prefix
+            <input type="text" id="invoice_prefix" />
+          </label>
+          <label>
+            Last number used
+            <input type="number" id="invoice_last_number" min="0" />
+          </label>
+          <label>
+            Amount
+            <input type="number" id="invoice_amount" step="0.01" min="0" />
+          </label>
+          <label>
+            Currency
+            <input type="text" id="invoice_currency" />
+          </label>
+        </div>
+        <label>
+          Description template
+          <input type="text" id="description_template" />
+        </label>
+
+        <h2>Issued by</h2>
+        <div class="grid">
+          <label>Name <input type="text" id="by_name" /></label>
+          <label>Address <input type="text" id="by_address" /></label>
+          <label>Phone <input type="text" id="by_phone" /></label>
+          <label>Email <input type="email" id="by_email" /></label>
+        </div>
+
+        <h2>Issued to</h2>
+        <div class="grid">
+          <label>Name <input type="text" id="to_name" /></label>
+          <label>Address <input type="text" id="to_address" /></label>
+          <label>ABN <input type="text" id="to_abn" /></label>
+        </div>
+
+        <h2>Pay to</h2>
+        <div class="grid">
+          <label>Bank <input type="text" id="pay_bank" /></label>
+          <label>Account name <input type="text" id="pay_account_name" /></label>
+          <label>Account number <input type="text" id="pay_account_number" /></label>
+          <label>Swift <input type="text" id="pay_swift" /></label>
+        </div>
+
+        <div class="actions">
+          <button type="submit">Save config</button>
+        </div>
+      </form>
+    </section>
+
+    <section>
+      <h1>Manual send</h1>
+      <p class="hint">Cron only sends the current month (day 25–month end, once). Use this for past months like June.</p>
+      <div class="grid">
+        <label>
+          Invoice month
+          <select id="send_month"></select>
+        </label>
+        <label class="checkbox">
+          <span>Force resend if already sent</span>
+          <input type="checkbox" id="send_force" />
+        </label>
+      </div>
+      <div class="actions">
+        <button type="button" id="send-btn" class="secondary">Send selected month</button>
+      </div>
+    </section>
+
+    <section>
+      <h1>Status</h1>
+      <p id="next-invoice">Next invoice: —</p>
+      <pre id="history"></pre>
+      <p id="message" class="message" hidden></p>
+    </section>
+  </main>
+  <script src="/static/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+generated/*.pdf
+!generated/.gitkeep
+.DS_Store
+data/config.json
+data/sent.json

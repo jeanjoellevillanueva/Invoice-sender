@@ -1,0 +1,14 @@
+services:
+  invoice-sender:
+    build: .
+    container_name: invoice-sender
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./data:/app/data
+      - ./generated:/app/generated
+    environment:
+      - TZ=Asia/Manila
+      - INVOICE_DATA_DIR=/app/data
+      - INVOICE_GENERATED_DIR=/app/generated

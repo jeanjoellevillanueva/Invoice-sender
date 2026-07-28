@@ -1,0 +1,157 @@
+:root {
+  --bg: #f3efe6;
+  --ink: #1c1a16;
+  --muted: #5c564c;
+  --line: #d2c8b6;
+  --accent: #0f5c4c;
+  --accent-ink: #f7f3ea;
+  --panel: rgba(255, 252, 246, 0.88);
+  --danger: #8b2e1f;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  background:
+    radial-gradient(circle at 12% 18%, rgba(15, 92, 76, 0.12), transparent 42%),
+    radial-gradient(circle at 88% 0%, rgba(140, 78, 36, 0.14), transparent 35%),
+    linear-gradient(160deg, #f7f1e4 0%, #ebe3d2 55%, #e4d8c3 100%);
+}
+
+main {
+  width: min(920px, calc(100% - 2rem));
+  margin: 2rem auto 3rem;
+}
+
+header {
+  margin-bottom: 1.5rem;
+}
+
+.brand {
+  margin: 0;
+  font-size: clamp(2rem, 5vw, 3rem);
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.status {
+  margin: 0.5rem 0 0;
+  color: var(--muted);
+}
+
+section {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  padding: 1.25rem 1.35rem 1.5rem;
+  margin-bottom: 1rem;
+  backdrop-filter: blur(8px);
+}
+
+h1, h2 {
+  margin: 0 0 0.85rem;
+  font-weight: 600;
+}
+
+h1 {
+  font-size: 1.25rem;
+}
+
+h2 {
+  margin-top: 1.25rem;
+  font-size: 1rem;
+  color: var(--muted);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-size: 0.92rem;
+  color: var(--muted);
+  margin-bottom: 0.85rem;
+}
+
+label.checkbox {
+  flex-direction: row;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 1.55rem;
+}
+
+.hint {
+  margin: 0 0 1rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+input,
+select {
+  font: inherit;
+  color: var(--ink);
+  border: 1px solid var(--line);
+  background: #fffdf8;
+  padding: 0.65rem 0.7rem;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+button {
+  font: inherit;
+  border: 0;
+  cursor: pointer;
+  padding: 0.7rem 1.1rem;
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+
+button.secondary {
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+}
+
+button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+pre {
+  margin: 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-family: "SFMono-Regular", Menlo, Consolas, monospace;
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+.message {
+  margin-top: 0.85rem;
+  color: var(--accent);
+}
+
+.message.error {
+  color: var(--danger);
+}
+
+@media (max-width: 700px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
